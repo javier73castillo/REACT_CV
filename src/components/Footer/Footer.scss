@@ -1,0 +1,33 @@
+.footer_redes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: rgb(97, 5, 5);
+    justify-content:center;
+    margin: 0 10px;
+
+
+
+    &_icons {
+        display: flex;
+        max-width: 10%;
+        margin: 10px;
+
+        .img{
+            width: 40%;
+        }
+    }
+    
+}
+
+.parrafo_foot_copyright{
+    font-size: 16px;
+    margin: 20px;
+    color: rgb(240, 239, 239);
+    text-align: center;
+
+    @media (max-width: 600px) {
+        font-size: 12px;
+    }
+}

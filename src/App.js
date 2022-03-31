@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import React, {useState} from "react";
+import Education from "./components/Education/Education";
+import { CV } from "./CV";
+import Person from "./components/Person/Person";
+import Experience from "./components/Experience/Experience";
+import Footer from "./components/Footer/Footer";
+import About from "./components/About/About";
+import More from "./components/More/More";
+
+const {person, education, experience, habilities} = CV;
 
 function App() {
+  const [component, setComponent] = useState('education');
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <Person person={person}/>
       </header>
+      <nav>
+        <button class="btn-components" onClick={()=> setComponent('education') } >Education</button>
+        <button class="btn-components" onClick={()=> setComponent('experience') }>Experience</button>
+        <button class="btn-components" onClick={()=> setComponent('about') }>About me</button>
+        <button class="btn-components" onClick={()=> setComponent('habilities') }>Soft Skills</button>
+
+      </nav>
+        <div className="container-app">
+         {
+           component === 'education' ? (<Education education={education}/>) : (component === 'experience' ? (<Experience experience={experience}/>) : (component === 'about' ? (<About person={person}/>) : 
+
+           (<More habilities={habilities}/>) ) ) 
+         }
+        </div>
+         <Footer/>
     </div>
   );
 }
